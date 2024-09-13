@@ -1,0 +1,299 @@
+/* Menu
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.menu
+{
+    margin: 1rem 0;
+    padding: 0 0 1rem 0;
+    list-style: none;
+}
+
+.menu li
+{
+    display: block;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.menu li a
+{
+    margin: 0;
+    display: inherit;
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    width: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu li.selected a
+{
+    border-bottom: 0.3rem solid #029FB4;
+}
+
+.menu li:hover a
+{
+    color: #1EAEDB;
+}
+
+@media (min-width: 576px)
+{
+    .menu
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu li
+    {
+        display: inline-block;
+        width: auto;
+    }
+
+    .menu li a
+    {
+        padding: 1rem 1rem 1.3rem 1rem;
+        border-bottom: none;
+    }
+
+    .menu li.selected a
+    {
+        padding-bottom: 1rem;
+    }
+}
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.logo
+{
+    padding: 1rem 0 1.3rem 0;
+}
+
+.inventory
+{
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem 1rem 1.3rem 1rem;
+}
+
+.user
+{
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem 0 1.3rem 0;
+    height: 2.7rem;
+}
+
+.user-company
+{
+    padding-right: 1rem;
+}
+
+.account
+{
+    position: relative;
+}
+
+.account .button
+{
+    color: #171e31;
+    background-color: #D5D5D5;
+    border-color: #D5D5D5;
+}
+
+.account .account-number
+{
+    position: absolute;
+    top: -0.6rem;
+    right: -0.6rem;
+    background-color: #040138;
+    color: #fff;
+    border-radius: 50%;
+    height: 1.2rem;
+    width: 1.2rem;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: normal;
+}
+
+.filters
+{
+    background-color: #040138;
+    color: #FFFFFF;
+}
+
+/* Main
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+main
+{
+    background-color: #F2F2F2;
+    padding: 2rem 0;
+}
+
+.page-content
+{
+    background-color: white;
+    box-shadow: 0 1px 2px #cccccc;
+    border-radius: 1rem;
+    padding: 0;
+}
+
+.page-content-data
+{
+    overflow: auto;
+}
+
+.page-content-header
+{
+    padding: 2rem 2rem 0 2rem;
+}
+
+.page-content-footer
+{
+    padding: 0 2rem 2rem 2rem;
+}
+
+.imgbox
+{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #646464;
+    display: inline-block;
+}
+
+.pagination--no-text .button span
+{
+    display: none;
+}
+
+/* Panel
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.panel
+{
+    z-index: 1000;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    right: -300px;
+    width: 300px;
+    transition: right 0.5s;
+    background-color: white;
+}
+
+.open.panel
+{
+    right: 0;
+}
+
+.panel__header
+{
+    background-color: #FFF;
+    box-shadow: 0 5px 10px #646464;
+    position: relative;
+    padding: 1rem 2rem;
+}
+
+.panel__title
+{
+    text-align: center;
+}
+
+.panel__close-button
+{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.panel__close-button span
+{
+    display: none;
+}
+
+.panel__content-wrapper
+{
+    max-height: 100%;
+    overflow: auto;
+}
+
+.panel__content
+{
+    padding: 2rem 2rem 6rem 2rem;
+}
+
+.filter__title
+{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.filter__list label
+{
+    font-weight: normal;
+}
+
+.filter__list input
+{
+    margin: 0;
+}
+
+.panel__footer
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -5px 10px #646464;
+    padding: 1rem 2rem;
+    background-color: #FFF;
+}
+
+#apply-filter
+{
+    width: 100%;
+    margin: 0;
+}
+
+/* Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+footer .menu
+{
+    font-size: 0.875rem;
+}
+
+footer .menu a
+{
+    color: #646464;
+    padding: 0.5rem;
+}
+
+.copyright
+{
+    margin: 1rem 0;
+}
+
+/* Overlay
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#overlay
+{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.5;
+    display: none;
+}
+
+.open#overlay
+{
+    display: block;
+}
