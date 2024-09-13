@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="gb" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>VS X Inventory administration page</title>
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" async src="js/products.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            products.loadProducts();
+        };
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-auto align-content-end">
+                    <div class="logo">
+                        <img src="images/logo_beta.svg" height="40" width="90" alt="Visualsoft Beta Logo">
+                    </div>
+                </div>
+                <div class="col-auto align-content-end flex-grow-1 flex-lg-grow-0">
+                    <div class="inventory">
+                        Inventory
+                        <i class="fa-solid fa-chevron-down fa-2xs"></i>
+                    </div>
+                </div>
+                <div class="col-auto order-lg-last align-content-end">
+                    <div class="user">
+                        <div class="user-company">Volkswagon</div>
+                        <div class="account">
+                            <span class="button button--secondary weight-bold m-0">KS<sup class="account-number">2</sup></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-auto flex-lg-grow-1 align-content-end">
+                    <nav class="top-nav">
+                        <ul class="menu">
+                            <li class="selected"><a href="#">Products</a></li>
+                            <li><a href="#">Reviews</a></li>
+                            <li><a href="#">Requests</a></li>
+                            <li><a href="#">Appointments</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="filters">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav>
+                        <ul class="menu">
+                            <li class="selected"><a href="#">All</a></li>
+                            <li><a href="#">Groups</a></li>
+                            <li><a href="#">Segments</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="page-navigation">
+            <div class="row">
+                <div class="col-auto flex-grow-1">
+                    <h1>Products</h1>
+                </div>
+                <div class="col-auto">
+                    <button class="button no-border"><i class="fa-solid fa-file-import"></i> Import</button>
+                    <button class="button no-border"><i class="fa-solid fa-file-export"></i> Export</button>
+                    <button class="button button--primary"><i class="fa-solid fa-plus"></i> Add Product</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="page-content-header">
+                <div class="row">
+                    <div class="col-auto flex-grow-1">
+                        <button class="button button--secondary filter-button"><i class="fa-solid fa-filter"></i> Filters</button>
+                    </div>
+                    <div class="col-auto">
+                        <p id="page-details"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content-data">
+                <table class="alternate-rows" id="page-content-data__table">
+                    <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title <i class="fa-solid fa-sort sort" data-field="title"></i></th>
+                        <th>Product ID <i class="fa-solid fa-sort sort" data-field="id"></i></th>
+                        <th>Category <i class="fa-solid fa-sort sort" data-field="category"></i></th>
+                        <th>Rating <i class="fa-solid fa-sort sort" data-field="rating.rate"></i></th>
+                        <th>Price <i class="fa-solid fa-sort sort" data-field="price"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="page-content-footer">
+                <div class="row justify-content-end">
+                    <div class="col-auto">
+                        <div class="pagination pagination--no-text">
+                            <button class="button button--secondary" id="first-button">
+                                <i class="fa-solid fa-angle-double-left"></i><span> First Page</span>
+                            </button>
+                            <button class="button button--secondary" id="previous-button">
+                                <i class="fa-solid fa-angle-left"></i><span> Previous Page</span>
+                            </button>
+                            <div class="page d-inline-block">Page
+                                <span class="button button--secondary" id="page-number">1</span> of
+                                <span id="total-pages"></span>
+                            </div>
+                            <button class="button button--secondary" id="next-button">
+                                <i class="fa-solid fa-angle-right"></i><span> Next Page</span>
+                            </button>
+                            <button class="button button--secondary" id="last-button">
+                                <i class="fa-solid fa-angle-double-right"></i><span> Last Page</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<aside class="panel" id="filter-panel">
+    <div class="panel__header">
+        <div class="panel__title">Filters</div>
+        <div class="panel__close-button filter-button">
+            <i class="fa-solid fa-close"></i><span> Close Filter</span>
+        </div>
+    </div>
+    <div class="panel__content-wrapper">
+        <div class="panel__content" id="filter_groups">
+        </div>
+        <div class="panel__footer">
+            <button class="button button--secondary" id="apply-filter">Apply Filter</button>
+        </div>
+    </div>
+</aside>
+
+<footer>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-sm-auto align-content-center">
+                <div class="logo">
+                    <img src="images/logo.svg" height="40" width="32" alt="Visualsoft Logo">
+                </div>
+            </div>
+            <div class="col-sm-auto align-content-center">
+                <nav>
+                    <ul class="menu">
+                        <li><a href="#">Terms &amp; conditions</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Knowledge</a></li>
+                        <li><a href="#">Feature hub</a></li>
+                        <li><a href="#">Documents</a></li>
+                        <li><a href="#">Templates</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-auto align-content-center">
+                <div class="copyright">
+                    &copy; Visualsoft 2021
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="overlay" class="filter-button"></div>
+
+</body>
+</html>
